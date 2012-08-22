@@ -55,6 +55,7 @@ find . -type f -exec chmod 644 {} \;
 sed -i '/^locale\.path/s/\/usr/\$\$PREFIX/' $PRGNAM.pro
 
 qmake PREFIX=/usr $PRGNAM.pro
+sed -i '/^LIBS/s/$/ -lX11/' Makefile
 make
 make INSTALL_ROOT=$PKG install
 

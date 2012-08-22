@@ -73,8 +73,7 @@ CXXFLAGS="$SLKCFLAGS" \
 ./configure \
   --prefix=/usr \
   --libdir=/usr/lib${LIBDIRSUFFIX} \
-  --build=$ARCH-slackware-linux \
-  --enable-media=no
+  --build=$ARCH-slackware-linux
 
 make -j1
 make install-strip DESTDIR=$PKG XDG_UTILS=""
