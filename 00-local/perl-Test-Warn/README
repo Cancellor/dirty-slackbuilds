@@ -1,0 +1,4 @@
+This module provides a few convenience methods for testing
+warning based code.
+
+This requires perl-Sub-Uplevel and perl-Tree-DAG_Node.
