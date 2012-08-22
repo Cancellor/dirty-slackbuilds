@@ -23,9 +23,11 @@
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 PRGNAM=scilab
-VERSION=${VERSION:-5.3.3}
-BUILD=${BUILD:-3}
-TAG=${TAG:-_SBo}
+VERSION=${VERSION:-5.4.0beta1}
+BUILD=${BUILD:-1}
+TAG=${TAG:-_GMo}
+
+ORIG_VERSION=5.4.0-beta-1
 
 if [ -z "$ARCH" ]; then
   case "$( uname -m )" in
@@ -53,14 +55,11 @@ set -e
 rm -rf $PKG
 mkdir -p $OUTPUT $TMP $PKG/opt/$PRGNAM
 cd $PKG/opt/$PRGNAM
-tar xvf $CWD/$PRGNAM-$VERSION.bin.linux-$ARCH.tar.gz \
+tar xvf $CWD/$PRGNAM-$ORIG_VERSION.bin.linux-$ARCH.tar.gz \
   --strip-components=1 $EXCLUDE
 chown -R root:root .
 
-sed -i "/^Exec/s/-cli/-adv-cli/" \
-  share/applications/$PRGNAM-adv-cli.desktop
-sed -i "/^Icon/s/-cli//;
-        /^Icon/s/\/usr/\/opt\/$PRGNAM/;
+sed -i "/^Icon/s/=.*\$/=$PRGNAM/;
         /^Categories/s/Development\;//" \
   share/applications/*.desktop
 sed -i "/^prefix/s/=.*\$/=\/opt\/$PRGNAM/" \
@@ -71,8 +70,9 @@ cat $CWD/profile.d/$PRGNAM.sh > $PKG/etc/profile.d/$PRGNAM.sh
 cat $CWD/profile.d/$PRGNAM.csh > $PKG/etc/profile.d/$PRGNAM.csh
 chmod 0755 $PKG/etc/profile.d/*
 
-mkdir -p $PKG/usr/share
-mv share/applications $PKG/usr/share
+mkdir -p $PKG/usr/{lib,share}
+mv lib/pkgconfig $PKG/usr/lib
+mv share/{applications,icons,mime} $PKG/usr/share
 
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
 mv *.txt ACKNOWLEDGE* COPYING* README* CHANGES* RELEASE* \
@@ -84,4 +84,4 @@ cat $CWD/slack-desc > $PKG/install/slack-desc
 cat $CWD/doinst.sh > $PKG/install/doinst.sh
 
 cd $PKG
-/sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.${PKGTYPE:-tgz}
+/sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.${PKGTYPE:-txz}
