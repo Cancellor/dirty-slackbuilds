@@ -1,0 +1,43 @@
+--- Makefile.orig	2012-08-20 20:32:38.000000000 +0300
++++ Makefile	2012-08-20 21:06:10.000000000 +0300
+@@ -16,9 +16,9 @@
+ DOCS    = LICENSE README INSTALL TODO ChangeLog README.Gophermap gophertag
+ 
+ INSTALL = PATH=$$PATH:/usr/sbin ./install-sh -o root -g 0
+-DESTDIR = /usr
+-SBINDIR = $(DESTDIR)/sbin
+-DOCDIR  = $(DESTDIR)/share/doc/$(PACKAGE)
++DESTDIR = 
++SBINDIR = $(DESTDIR)/usr/sbin
++DOCDIR  = $(DESTDIR)/usr/doc/$(PACKAGE)-$(VERSION)
+ 
+ ROOT    = /var/gopher
+ OSXROOT = /Library/GopherServer
+@@ -134,11 +134,9 @@
+ 	@echo
+ 
+ install-root:
+-	if [ ! -d "$(ROOT)" ]; then \
+-		mkdir -p $(ROOT); \
+-		$(INSTALL) -m 644 $(MAP) $(ROOT); \
+-		ln -s $(DOCDIR) $(ROOT)/docs; \
+-	fi
++	mkdir -p $(DESTDIR)/$(ROOT)
++	$(INSTALL) -m 644 $(MAP) $(DESTDIR)/$(ROOT)
++	ln -s /usr/doc/$(PACKAGE)-$(VERSION) $(DESTDIR)/$(ROOT)/docs
+ 	@echo
+ 
+ install-inetd:
+@@ -156,10 +154,8 @@
+ 	@echo
+ 
+ install-xinetd:
+-	if [ -d "$(XINETD)" -a ! -f "$(XINETD)/gopher" ]; then \
+-		sed -e "s/@HOSTNAME@/`hostname`/g" $(NAME).xinetd > $(XINETD)/$(NAME); \
+-		[ -x /sbin/service ] && /sbin/service xinetd reload; \
+-	fi
++	mkdir -p $(DESTDIR)/$(XINETD)
++	sed -e "s/@HOSTNAME@/`hostname`/g" $(NAME).xinetd > $(DESTDIR)/$(XINETD)/$(NAME).new
+ 	@echo
+ 
+ install-osx:

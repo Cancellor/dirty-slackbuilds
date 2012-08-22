@@ -1,0 +1,10 @@
+gophertag
+gophermap
+*.t[gx]z
+*.tar.gz
+*.tar.bz2
+*.tar.xz
+*.zip
+*.jar
+*.deb
+*.rpm
