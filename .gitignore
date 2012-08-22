@@ -9,3 +9,4 @@ gophermap
 *.deb
 *.rpm
 *.msi
+*.bin
