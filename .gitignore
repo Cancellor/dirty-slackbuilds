@@ -8,3 +8,4 @@ gophermap
 *.jar
 *.deb
 *.rpm
+*.msi
