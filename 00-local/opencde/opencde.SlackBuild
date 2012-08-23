@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Slackware build script for Gophernicus
+# Slackware build script for OpenCDE
 
 # Copyright 2012  Fridrich von Stauffenberg <cancellor2@gmail.com>
 # All rights reserved.
@@ -22,10 +22,10 @@
 # OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-PRGNAM=gophernicus
-VERSION=${VERSION:-1.3}
+PRGNAM=opencde
+VERSION=620
 BUILD=${BUILD:-1}
-TAG=${TAG:-_SBo}
+TAG=${TAG:-_GMo}
 
 if [ -z "$ARCH" ]; then
   case "$( uname -m )" in
@@ -54,24 +54,28 @@ else
   LIBDIRSUFFIX=""
 fi
 
+SLKCFLAGS="$SLKCFLAGS -I/usr/dt/include -I/usr/include"
+SLKLDFLAGS="-L/usr/dt/lib$LIBDIRSUFFIX -L/usr/lib$LIBDIRSUFFIX -rpath"
+
 set -e
 
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
 cd $TMP
-rm -rf $PRGNAM-$VERSION
+rm -rf $PRGNAM
 tar xvf $CWD/$PRGNAM-$VERSION.tar.gz
-cd $PRGNAM-$VERSION
+cd $PRGNAM
 chown -R root:root .
 
-patch -p0 < $CWD/Makefile.patch
+export LD_LIBRARY_PATH=/usr/dt/lib:$LD_LIBRARY_PATH
+make PLATFORM=LINUX CFLAGS="$SLKCFLAGS" CPPFLAGS="$SLKCFLAGS" LDFLAGS="$SLKLDFLAGS"
+make PREFIX=$PKG/usr/dt install
 
-make CFLAGS="$SLKCFLAGS"
-make install DESTDIR=$PKG
-
-find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" | grep ELF \
+find $PKG | xargs file | grep -e "executable" -e "shared object" | grep ELF \
   | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
 
+mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
+cp -a README $PKG/usr/doc/$PRGNAM-$VERSION
 cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
 
 mkdir -p $PKG/install
@@ -79,4 +83,4 @@ cat $CWD/slack-desc > $PKG/install/slack-desc
 cat $CWD/doinst.sh > $PKG/install/doinst.sh
 
 cd $PKG
-/sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.${PKGTYPE:-tgz}
+/sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.${PKGTYPE:-txz}

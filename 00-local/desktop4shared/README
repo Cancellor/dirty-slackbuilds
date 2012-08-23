@@ -1,0 +1,4 @@
+This requires groovy, slf4j, logback, miglayout, wsdl4j,
+axis and glazedlists.
+
+WARNING: You need groovy 1.7.x.
