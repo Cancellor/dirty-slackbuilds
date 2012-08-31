@@ -27,8 +27,8 @@ VERSION=${VERSION:-0.0.6}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_GMo}
 
-ORIG_DIRNAME=lintest-$PRGNAM-87df214
-ORIG_FILENAME=lintest-$PRGNAM-QTextEdit-240-g87df214.tar.gz
+ORIG_DIRNAME=lintest-$PRGNAM-ad914ce
+ORIG_FILENAME=lintest-$PRGNAM-QTextEdit-253-gad914ce.tar.gz
 
 if [ -z "$ARCH" ]; then
   case "$( uname -m )" in
