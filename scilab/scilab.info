@@ -5,6 +5,6 @@ DOWNLOAD="http://www.scilab.org/download/5.4.0-beta-1/scilab-5.4.0-beta-1.bin.li
 MD5SUM="88c770940997a86d39b44c4f717774f4"
 DOWNLOAD_x86_64="http://www.scilab.org/download/5.4.0-beta-1/scilab-5.4.0-beta-1.bin.linux-x86_64.tar.gz"
 MD5SUM_x86_64="c123776db78b3715b6a54e182a80a179"
+REQUIRES=""
 MAINTAINER="Fridrich von Stauffenberg"
 EMAIL="cancellor2@gmail.com"
-APPROVED=""

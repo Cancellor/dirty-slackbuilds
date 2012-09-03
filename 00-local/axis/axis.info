@@ -5,6 +5,6 @@ DOWNLOAD="http://mirrors.besplatnyeprogrammy.ru/apache/ws/axis/1_4/axis-bin-1_4.
 MD5SUM="5a2962737edf25621482d7419fc89bdc"
 DOWNLOAD_x86_64=""
 MD5SUM_x86_64=""
+REQUIRES=""
 MAINTAINER="Fridrich von Stauffenberg"
 EMAIL="cancellor2@gmail.com"
-APPROVED=""
