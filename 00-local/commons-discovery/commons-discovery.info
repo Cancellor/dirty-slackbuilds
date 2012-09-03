@@ -5,6 +5,6 @@ DOWNLOAD="http://mirrors.besplatnyeprogrammy.ru/apache/commons/discovery/binarie
 MD5SUM="aa138c97054aadd3e7aed34d99d9dd3a"
 DOWNLOAD_x86_64=""
 MD5SUM_x86_64=""
-REQUIRES=""
+REQUIRES="jdk"
 MAINTAINER="Fridrich von Stauffenberg"
 EMAIL="cancellor2@gmail.com"

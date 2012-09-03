@@ -5,6 +5,6 @@ DOWNLOAD="http://mirrors.besplatnyeprogrammy.ru/apache/commons/logging/binaries/
 MD5SUM="e5de09672af9b386c30a311654d8541a"
 DOWNLOAD_x86_64=""
 MD5SUM_x86_64=""
-REQUIRES=""
+REQUIRES="jdk"
 MAINTAINER="Fridrich von Stauffenberg"
 EMAIL="cancellor2@gmail.com"

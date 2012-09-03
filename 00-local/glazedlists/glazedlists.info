@@ -5,6 +5,6 @@ DOWNLOAD="https://maven.java.net/service/local/repositories/snapshots/content/ne
 MD5SUM="8f7f3bfa8caac3b0fa37e2c9d3d68caa"
 DOWNLOAD_x86_64=""
 MD5SUM_x86_64=""
-REQUIRES=""
+REQUIRES="jdk"
 MAINTAINER="Fridrich von Stauffenberg"
 EMAIL="cancellor2@gmail.com"
