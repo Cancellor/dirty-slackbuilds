@@ -5,6 +5,6 @@ DOWNLOAD="http://download.sourceforge.net/project/openstego/openstego/openstego-
 MD5SUM="fdaeb192c86e359cb2cdb24b6a68274c"
 DOWNLOAD_x86_64=""
 MD5SUM_x86_64=""
+REQUIRES="jdk"
 MAINTAINER="Fridrich von Stauffenberg"
 EMAIL="cancellor2@gmail.com"
-APPROVED=""

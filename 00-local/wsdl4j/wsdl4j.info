@@ -5,6 +5,6 @@ DOWNLOAD="http://downloads.sourceforge.net/project/wsdl4j/WSDL4J/1.6.2/wsdl4j-bi
 MD5SUM="754d2a72d2e0eb97fba731559beadf00"
 DOWNLOAD_x86_64=""
 MD5SUM_x86_64=""
+REQUIRES=""
 MAINTAINER="Fridrich von Stauffenberg"
 EMAIL="cancellor2@gmail.com"
-APPROVED=""
