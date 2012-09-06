@@ -67,7 +67,6 @@ tar xvf $CWD/$PRGNAM-$VERSION.tar.gz
 cd $PRGNAM
 chown -R root:root .
 
-export LD_LIBRARY_PATH=/usr/dt/lib:$LD_LIBRARY_PATH
 make PLATFORM=LINUX CFLAGS="$SLKCFLAGS" CPPFLAGS="$SLKCFLAGS" LDFLAGS="$SLKLDFLAGS"
 make PREFIX=$PKG/usr/dt install
 
@@ -80,7 +79,6 @@ cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
 
 mkdir -p $PKG/install
 cat $CWD/slack-desc > $PKG/install/slack-desc
-cat $CWD/doinst.sh > $PKG/install/doinst.sh
 
 cd $PKG
 /sbin/makepkg -l y -c n $OUTPUT/$PRGNAM-$VERSION-$ARCH-$BUILD$TAG.${PKGTYPE:-txz}
