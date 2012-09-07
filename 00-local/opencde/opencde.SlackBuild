@@ -54,8 +54,8 @@ else
   LIBDIRSUFFIX=""
 fi
 
-SLKCFLAGS="$SLKCFLAGS -I/usr/dt/include -I/usr/include"
-SLKLDFLAGS="-L/usr/dt/lib$LIBDIRSUFFIX -L/usr/lib$LIBDIRSUFFIX -rpath"
+SLKCFLAGS="$SLKCFLAGS -I/opt/openmotif/include -I/usr/include"
+SLKLDFLAGS="-L/opt/openmotif/lib$LIBDIRSUFFIX -L/usr/lib$LIBDIRSUFFIX -rpath"
 
 set -e
 
@@ -72,6 +72,11 @@ make PREFIX=$PKG/usr/dt install
 
 find $PKG | xargs file | grep -e "executable" -e "shared object" | grep ELF \
   | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
+
+mkdir -p $PKG/etc/profile.d
+cat $CWD/profile.d/$PRGNAM.sh > $PKG/etc/profile.d/$PRGNAM.sh
+cat $CWD/profile.d/$PRGNAM.csh > $PKG/etc/profile.d/$PRGNAM.csh
+chmod 0755 $PKG/etc/profile.d/*
 
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
 cp -a README $PKG/usr/doc/$PRGNAM-$VERSION

@@ -1,3 +1,3 @@
 #!/bin/sh
-export PATH=${PATH}:/usr/dt/bin
-export MANPATH=${MANPATH}:/usr/dt/man
+export PATH=${PATH}:/opt/openmotif/bin
+export MANPATH=${MANPATH}:/opt/openmotif/man
