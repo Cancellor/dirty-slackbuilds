@@ -64,10 +64,7 @@ tar xvf $CWD/$PRGNAM-$VERSION.tar.gz
 cd $PRGNAM-$VERSION
 chown -R root:root .
 
-# This is vital!
-( cd $PRGNAM-core
-  patch -p1 < $CWD/$PRGNAM-disable-tr1.patch
-)
+patch -p0 < $CWD/$PRGNAM-disable-tr1.patch
 
 CFLAGS="$SLKCFLAGS" \
 CXXFLAGS="$SLKCFLAGS" \

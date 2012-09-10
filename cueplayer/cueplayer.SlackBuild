@@ -56,7 +56,7 @@ sed -i '/^locale\.path/s/\/usr/\$\$PREFIX/' $PRGNAM.pro
 
 qmake PREFIX=/usr $PRGNAM.pro
 make
-make INSTALL_ROOT=$PKG install
+make install INSTALL_ROOT=$PKG
 
 mkdir -p $PKG/usr/share/{applications,pixmaps}
 cat $CWD/$PRGNAM.desktop > $PKG/usr/share/applications/$PRGNAM.desktop
