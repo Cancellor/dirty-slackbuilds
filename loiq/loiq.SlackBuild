@@ -59,7 +59,7 @@ chown -R root:root .
 qmake PREFIX=/usr $PRGNAM.pro
 make clean
 make
-make INSTALL_ROOT=$PKG install
+make install INSTALL_ROOT=$PKG
 
 if [ ! -z "$(which icotool 2> /dev/null)" ]; then
   cd images
