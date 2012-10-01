@@ -1,9 +1,8 @@
 gophertag
 gophermap
 *.t[gx]z
-*.tar.gz
+*.tar.[gx]z
 *.tar.bz2
-*.tar.xz
 *.zip
 *.jar
 *.deb
