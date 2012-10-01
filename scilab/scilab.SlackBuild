@@ -23,11 +23,11 @@
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 PRGNAM=scilab
-VERSION=${VERSION:-5.4.0beta1}
+VERSION=${VERSION:-5.4.0beta3}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 
-ORIG_VERSION=5.4.0-beta-1
+ORIG_VERSION=${VERSION/beta/-beta-}
 
 if [ -z "$ARCH" ]; then
   case "$( uname -m )" in
