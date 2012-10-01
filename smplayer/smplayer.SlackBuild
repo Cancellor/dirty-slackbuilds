@@ -27,6 +27,8 @@ VERSION=${VERSION:-0.8.1}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 
+THEMES=${THEMES:-20120919}
+
 if [ -z "$ARCH" ]; then
   case "$( uname -m )" in
     i?86) ARCH=i486 ;;
@@ -76,6 +78,16 @@ make install DESTDIR=$PKG
 find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" | grep ELF \
   | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
 
+cd $TMP
+rm -rf $PRGNAM-themes-$THEMES
+tar xvf $CWD/$PRGNAM-themes-$THEMES.tar.bz2
+cd $PRGNAM-themes-$THEMES
+chown -R root:root .
+
+make install PREFIX=/usr DESTDIR=$PKG
+
+mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION/themes
+cp -a *.txt Changelog $PKG/usr/doc/$PRGNAM-$VERSION/themes
 cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
 
 mkdir -p $PKG/install
