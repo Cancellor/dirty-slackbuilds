@@ -69,6 +69,7 @@ chown -R root:root .
 
 CFLAGS="$SLKCFLAGS" \
 CXXFLAGS="$SLKCFLAGS" \
+LDFLAGS="-lpng -ljpeg" \
 ./configure \
   --prefix=/usr \
   --build=$ARCH-slackware-linux \
