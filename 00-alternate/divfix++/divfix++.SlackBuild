@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Slackware build script for Meteorite
+# Slackware build script for DivFix++
 
 # Copyright 2012  Fridrich von Stauffenberg <cancellor2@gmail.com>
 # All rights reserved.
@@ -22,12 +22,12 @@
 # OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-PRGNAM=meteorite
-VERSION=${VERSION:-0.11}
+PRGNAM=divfix++
+VERSION=${VERSION:-0.34}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_GMo}
 
-ORIG_PRGNAM=Meteorite
+ORIG_PRGNAM=DivFix++
 
 if [ -z "$ARCH" ]; then
   case "$( uname -m )" in
@@ -61,20 +61,15 @@ set -e
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
 cd $TMP
-rm -rf $ORIG_PRGNAM
-tar xvf $CWD/$ORIG_PRGNAM-v$VERSION-src.tar.bz2
-cd $ORIG_PRGNAM
+rm -rf ${ORIG_PRGNAM}_v$VERSION
+tar xvf $CWD/${ORIG_PRGNAM}_v$VERSION-src.tar.bz2
+cd ${ORIG_PRGNAM}_v$VERSION
 chown -R root:root .
-
-sed -i '/.desktop/d;s/.png/.xpm/g' makefile
 
 CFLAGS="$SLKCFLAGS" \
 CXXFLAGS="$SLKCFLAGS" \
 make
 make install DESTDIR=$PKG
-
-mkdir -p $PKG/usr/share/applications
-cat $CWD/$PRGNAM.desktop > $PKG/usr/share/applications/$PRGNAM.desktop
 
 find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" | grep ELF \
   | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
