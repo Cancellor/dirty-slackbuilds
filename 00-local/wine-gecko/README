@@ -1,4 +1,0 @@
-Wine implements its own version of Internet Explorer.
-The implementation is based on a custom version of Mozilla's Gecko
-Layout Engine. When your application tries to display a web page,
-it will load Wine's custom Gecko.
