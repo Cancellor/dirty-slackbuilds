@@ -8,4 +8,4 @@ gopher  stream  tcp  nowait  nobody  /usr/sbin/in.gophernicus  in.gophernicus -h
 
 Alternatively, gophernicus can be configured to run under xinetd.
 This is done automatically when xinetd is present on the system at
-build time.
+the build time.
