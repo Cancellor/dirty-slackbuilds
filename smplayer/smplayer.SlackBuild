@@ -23,11 +23,12 @@
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 PRGNAM=smplayer
-VERSION=${VERSION:-0.8.1}
+VERSION=${VERSION:-0.8.3}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_SBo}
 
 THEMES=${THEMES:-20120919}
+SKINS=${SKINS:-20121029}
 
 if [ -z "$ARCH" ]; then
   case "$( uname -m )" in
@@ -88,6 +89,18 @@ make install PREFIX=/usr DESTDIR=$PKG
 
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION/themes
 cp -a *.txt Changelog $PKG/usr/doc/$PRGNAM-$VERSION/themes
+cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
+
+cd $TMP
+rm -rf $PRGNAM-skins-$SKINS
+tar xvf $CWD/$PRGNAM-skins-$SKINS.tar.bz2
+cd $PRGNAM-skins-$SKINS
+chown -R root:root .
+
+make install PREFIX=/usr DESTDIR=$PKG
+
+mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION/skins
+cp -a *.txt Changelog $PKG/usr/doc/$PRGNAM-$VERSION/skins
 cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
 
 mkdir -p $PKG/install
