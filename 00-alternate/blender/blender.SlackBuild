@@ -23,7 +23,7 @@
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 PRGNAM=blender
-VERSION=${VERSION:-2.64}
+VERSION=${VERSION:-2.65}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_GMo}
 
@@ -50,7 +50,7 @@ set -e
 rm -rf $PKG
 mkdir -p $OUTPUT $TMP $PKG/opt/$PRGNAM
 cd $PKG/opt/$PRGNAM
-tar xvf $CWD/$PRGNAM-$VERSION-linux-glibc27-$ARCH.tar.bz2 \
+tar xvf $CWD/$PRGNAM-$VERSION-linux-glibc211-$ARCH.tar.bz2 \
   --strip-components=1 --exclude lib/libGL* --exclude blender_icon_source.svg
 chown -R root:root .
 
