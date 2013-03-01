@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Slackware build script for Bricscad
+# Slackware build script for BricsCAD
 
 # Copyright 2012  Fridrich von Stauffenberg <cancellor2@gmail.com>
 # All rights reserved.
@@ -23,11 +23,11 @@
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 PRGNAM=bricscad
-VERSION=${VERSION:-12.2.16}
+VERSION=${VERSION:-13.1.19}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_GMo}
 
-ORIG_PRGNAM=Bricscad
+ORIG_PRGNAM=BricsCAD
 ORIG_VERSION=V$VERSION-1-${BRICSLANG:-ru_RU}
 ORIG_FILENAME=$ORIG_PRGNAM-$ORIG_VERSION.tgz
 
