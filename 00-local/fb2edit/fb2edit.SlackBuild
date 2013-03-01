@@ -23,12 +23,9 @@
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 PRGNAM=fb2edit
-VERSION=${VERSION:-0.0.6}
+VERSION=${VERSION:-0.0.7}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_GMo}
-
-ORIG_DIRNAME=lintest-$PRGNAM-535211f
-ORIG_FILENAME=lintest-$PRGNAM-QTextEdit-295-g535211f.tar.gz
 
 if [ -z "$ARCH" ]; then
   case "$( uname -m )" in
@@ -62,9 +59,9 @@ set -e
 rm -rf $PKG
 mkdir -p $TMP $PKG $OUTPUT
 cd $TMP
-rm -rf $ORIG_DIRNAME
-tar xvf $CWD/$ORIG_FILENAME
-cd $ORIG_DIRNAME
+rm -rf $PRGNAM-$VERSION
+tar xvf $CWD/$VERSION.tar.gz
+cd $PRGNAM-$VERSION
 chown -R root:root .
 
 mkdir -p build
@@ -86,7 +83,7 @@ find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" | \
   grep ELF | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
 
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
-cp -a AUTHORS LICENSE $PKG/usr/doc/$PRGNAM-$VERSION
+cp -a AUTHORS LICENSE README $PKG/usr/doc/$PRGNAM-$VERSION
 cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
 
 mkdir -p $PKG/install
