@@ -51,7 +51,7 @@ mkdir -p $PKG/usr/bin
 cat $CWD/$PRGNAM.sh > $PKG/usr/bin/$PRGNAM
 chmod 755 $PKG/usr/bin/$PRGNAM
 
-mkdir -p $PKG/usr/share/{applications,pixmaps}
+mkdir -p $PKG/usr/share/applications $PKG/usr/share/pixmaps
 cat $CWD/$PRGNAM.desktop > $PKG/usr/share/applications/$PRGNAM.desktop
 cat $CWD/$PRGNAM.png > $PKG/usr/share/pixmaps/$PRGNAM.png
 
