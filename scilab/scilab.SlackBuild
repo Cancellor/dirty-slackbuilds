@@ -65,9 +65,9 @@ cat $CWD/profile.d/$PRGNAM.sh > $PKG/etc/profile.d/$PRGNAM.sh
 cat $CWD/profile.d/$PRGNAM.csh > $PKG/etc/profile.d/$PRGNAM.csh
 chmod 0755 $PKG/etc/profile.d/*
 
-mkdir -p $PKG/usr/{lib,share}
+mkdir -p $PKG/usr/lib $PKG/usr/share
 mv lib/pkgconfig $PKG/usr/lib
-mv share/{applications,icons,mime} $PKG/usr/share
+mv share/applications share/icons share/mime $PKG/usr/share/
 
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
 mv *.txt ACKNOWLEDGE* COPYING* README* CHANGES* RELEASE* \
