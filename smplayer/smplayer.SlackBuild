@@ -79,6 +79,10 @@ make install DESTDIR=$PKG
 find $PKG -print0 | xargs -0 file | grep -e "executable" -e "shared object" | grep ELF \
   | cut -f 1 -d : | xargs strip --strip-unneeded 2> /dev/null || true
 
+mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
+cp -a *.txt Changelog $PKG/usr/doc/$PRGNAM-$VERSION
+cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
+
 cd $TMP
 rm -rf $PRGNAM-themes-$THEMES
 tar xvf $CWD/$PRGNAM-themes-$THEMES.tar.bz2
@@ -89,7 +93,6 @@ make install PREFIX=/usr DESTDIR=$PKG
 
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION/themes
 cp -a *.txt Changelog $PKG/usr/doc/$PRGNAM-$VERSION/themes
-cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
 
 cd $TMP
 rm -rf $PRGNAM-skins-$SKINS
@@ -101,7 +104,6 @@ make install PREFIX=/usr DESTDIR=$PKG
 
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION/skins
 cp -a *.txt Changelog $PKG/usr/doc/$PRGNAM-$VERSION/skins
-cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
 
 mkdir -p $PKG/install
 cat $CWD/slack-desc > $PKG/install/slack-desc
