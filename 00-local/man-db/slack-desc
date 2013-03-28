@@ -1,0 +1,19 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.
+# Line up the first '|' above the ':' following the base package name, and
+# the '|' on the right side marks the last column you can put a character in.
+# You must make exactly 11 lines for the formatting to be correct.  It's also
+# customary to leave one space after the ':' except on otherwise blank lines.
+
+      |-----handy-ruler------------------------------------------------------|
+man-db: man-db (the on-line manual database)
+man-db:
+man-db: man-db is an implementation of the standard Unix documentation system
+man-db: accessed using the man command. It uses a Berkeley DB database in
+man-db: place of the traditional flat-text whatis databases.
+man-db:
+man-db: Homepage: http://man-db.nongnu.org
+man-db:
+man-db:
+man-db:
+man-db:
