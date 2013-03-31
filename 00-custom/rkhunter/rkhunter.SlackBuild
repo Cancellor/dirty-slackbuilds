@@ -3,6 +3,7 @@
 # Slackware build script for Rootkit Hunter
 
 # Written by Michael Johnson (youngmug@animeneko.net)
+# Currently maintained by Mr. B-o-B <mr dot chew dot baka at gmail dot com>
 
 PRGNAM=rkhunter
 VERSION=${VERSION:-1.4.0}
@@ -56,6 +57,10 @@ TXZ_BUILD_ROOT=$PKG \
 ./installer.sh \
   --layout TXZ \
   --install
+
+# Put docs and manual pages in the correct place
+#mv $PKG/usr/share/* $PKG/usr
+#rmdir $PKG/usr/share
 
 # Don't clobber existing config file.
 mv $PKG/etc/rkhunter.conf $PKG/etc/rkhunter.conf.new
