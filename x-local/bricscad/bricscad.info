@@ -1,7 +1,7 @@
 PRGNAM="bricscad"
 VERSION="13.1.19"
 HOMEPAGE="http://bricsys.com"
-DOWNLOAD="http://bricsys.com"
+DOWNLOAD="BricsCAD-V13.1.19-1-ru_RU.tgz"
 MD5SUM="41a0685bd0f77174e3bc8eab31c5d41b"
 DOWNLOAD_x86_64="UNTESTED"
 MD5SUM_x86_64=""
