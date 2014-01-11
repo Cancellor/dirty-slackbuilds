@@ -52,8 +52,6 @@ tar xvf $CWD/$VERSION.tar.?z* || tar xvf $CWD/$ORIG_PRGNAM-$VERSION.tar.?z*
 cd $ORIG_PRGNAM-$VERSION
 chown -R root:root .
 
-sed -i "s@/share/doc/$PRGNAM@/doc/$PRGNAM-$VERSION@" desktop/$PRGNAM.1
-
 qmake $PRGNAM.pro
 make
 
