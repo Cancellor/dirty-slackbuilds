@@ -1,0 +1,6 @@
+This is an XS-wrapper around OpenSSL's PKCS5 PBKDF2 function, used
+to derive a key from a passphrase.
+
+This module is an alternative to the implementation provided by
+Crypt::PBKDF2, but faster and lighter. This module is simply a
+wrapper around the OpenSSL library function PKCS5_PBKDF2_HMAC_SHA1.

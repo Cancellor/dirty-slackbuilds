@@ -1,0 +1,19 @@
+# HOW TO EDIT THIS FILE:
+# The "handy ruler" below makes it easier to edit a package description.
+# Line up the first '|' above the ':' following the base package name, and
+# the '|' on the right side marks the last column you can put a character in.
+# You must make exactly 11 lines for the formatting to be correct.  It's also
+# customary to leave one space after the ':' except on otherwise blank lines.
+
+                         |-----handy-ruler------------------------------------------------------|
+perl-Crypt-OpenSSL-PBKDF2: perl-Crypt-OpenSSL-PBKDF2 (Crypt::OpenSSL::PBKDF2)
+perl-Crypt-OpenSSL-PBKDF2:
+perl-Crypt-OpenSSL-PBKDF2: This is an XS-wrapper around OpenSSL's PKCS5 PBKDF2 function, used
+perl-Crypt-OpenSSL-PBKDF2: to derive a key from a passphrase.
+perl-Crypt-OpenSSL-PBKDF2:
+perl-Crypt-OpenSSL-PBKDF2: This module is an alternative to the implementation provided by
+perl-Crypt-OpenSSL-PBKDF2: Crypt::PBKDF2, but faster and lighter. This module is simply a
+perl-Crypt-OpenSSL-PBKDF2: wrapper around the OpenSSL library function PKCS5_PBKDF2_HMAC_SHA1.
+perl-Crypt-OpenSSL-PBKDF2:
+perl-Crypt-OpenSSL-PBKDF2: Homepage: http://search.cpan.org/dist/Crypt-OpenSSL-PBKDF2/
+perl-Crypt-OpenSSL-PBKDF2:
