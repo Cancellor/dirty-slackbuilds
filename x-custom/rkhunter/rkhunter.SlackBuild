@@ -6,7 +6,7 @@
 # Currently maintained by Mr. B-o-B <mr dot chew dot baka at gmail dot com>
 
 PRGNAM=rkhunter
-VERSION=${VERSION:-1.4.0}
+VERSION=${VERSION:-1.4.2}
 BUILD=${BUILD:-1}
 TAG=${TAG:-_GMo}
 
