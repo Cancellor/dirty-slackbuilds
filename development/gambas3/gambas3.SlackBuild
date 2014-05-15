@@ -90,12 +90,10 @@ mkdir -p $PKG/usr/share/{applications,mime/packages}
 cp -a app/desktop/$PRGNAM.desktop $PKG/usr/share/applications
 cp -a app/mime/application-x-${SHORT_PRGNAM}{script,serverpage}.xml \
   $PKG/usr/share/mime/packages
-cp -a main/mime/application-x-$PRGNAM.xml \
-  $PKG/usr/share/mime/packages
+cp -a main/mime/application-x-$PRGNAM.xml $PKG/usr/share/mime/packages
 
 mkdir -p $PKG/usr/doc/$PRGNAM-$VERSION
-cp -a AUTHORS COPYING ChangeLog INSTALL NEWS README TODO \
-  $PKG/usr/doc/$PRGNAM-$VERSION
+cp -a COPYING ChangeLog INSTALL README TODO $PKG/usr/doc/$PRGNAM-$VERSION
 cat $CWD/$PRGNAM.SlackBuild > $PKG/usr/doc/$PRGNAM-$VERSION/$PRGNAM.SlackBuild
 
 mkdir -p $PKG/install
