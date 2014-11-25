@@ -1,6 +1,7 @@
 [Desktop Entry]
 Version=1.0
 Type=Application
+Terminal=false
 Name=MicroEmulator
 GenericName=J2ME emulator
 Comment=Run Java MIDlets on PC
