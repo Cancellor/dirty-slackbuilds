@@ -71,11 +71,19 @@ find -L . \
 
 find . -type f -exec sed -i "s,QTDIR,QT4DIR,g" {} \;
 
+# in x86_64, qucs-doc and examples requires newer automake
+cd qucs-doc
+autoreconf -vi
+cd ../examples
+autoreconf -vi
+cd ..
+
 CFLAGS="$SLKCFLAGS" \
 CXXFLAGS="$SLKCFLAGS" \
 ./configure \
   --prefix=/usr \
   --mandir=/usr/man \
+  --libdir=/usr/lib${LIBDIRSUFFIX} \
   --build=$ARCH-slackware-linux
 
 make
